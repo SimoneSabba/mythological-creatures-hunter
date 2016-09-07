@@ -1,0 +1,37 @@
+<div class="loading" ng-show="!loaded">
+    Loading.....
+    <span class="ball1"></span>
+    <span class="ball2"></span>
+</div>
+<div ng-show="loaded" class="container">
+    <div class="well" ng-repeat="item in list.items track by $index">
+        <div class="media">
+            <a class="pull-left" ng-click="goToPost(item)" >
+                <img class="flr-img flr-pointer media-object" ng-src="{{item.media.m}}">
+            </a>
+            <div class="media-body">
+                <h4 class="flr-truncate flr-title flr-pointer media-heading" ng-click="goToPost(item)">{{item.title}}</h4>
+                <div class="flr-only-tablet-view flr-margin-left-large flr-margin-bottom-medium">
+                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                    Published: {{formatDate(item.published)}}
+                </div>
+                <div class="flr-flex-view">
+                    <div class="">
+                        <i class="fa fa-user"></i>
+                        <a ng-href="{{getAuthorPage(item.author_id)}}" target="_blank">{{item.author}}</a>
+                    </div>
+                    <div class="flr-only-desktop-view">
+                        <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                        Published: {{formatDate(item.published)}}
+                    </div>
+                    <div>
+                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                        <a ng-href="{{item.link}}" target="_blank">
+                            View on Flickr
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
