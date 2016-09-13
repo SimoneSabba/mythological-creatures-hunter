@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="alert alert-danger text-center" ng-show="profileInfo.freeCage = 0" role="alert">
+	<div class="alert alert-danger text-center" ng-show="profileInfo.freeCage === 0" role="alert">
 	  You don't have free cage! Free some creature before hunting again!
 	</div>
 	<div class="row">
@@ -10,7 +10,7 @@
 						<div class="box__content">
 	            <h1 class="tag-title text-center">{{c.type}}</h1>
           		<hr />
-	            <button ng-disabled="profileInfo.freeCage = 0" ng-show="!isHunting(c)" class="btn btn-block btn-primary" ng-click="hunt(c)">Hunt it!</button>
+	            <button ng-disabled="profileInfo.freeCage === 0" ng-show="!isHunting(c)" class="btn btn-block btn-primary" ng-click="hunt(c)">Hunt it!</button>
             </div>
 						<form ng-show="isHunting(c)">
 						  <div class="form-group" ng-class="{'has-error': isSubmitted && !isValid.name}">

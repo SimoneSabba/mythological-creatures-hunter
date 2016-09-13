@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="alert alert-danger text-center" ng-show="profileInfo.freeCage = 0" role="alert">
+	<div class="alert alert-danger text-center" ng-show="profileInfo.freeCage === 0" role="alert">
 	  You don't have free cage! Free some creature before hunting again!
 	</div>
 	<div class="row">
@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<div class="row text-center">
-				<button class="btn btn-block btn-primary" ng-disabled="profileInfo.freeCage = 0" ng-click="huntMore()">Hunt for more!</button>
+				<button class="btn btn-block btn-primary" ng-disabled="profileInfo.freeCage === 0" ng-click="huntMore()">Hunt for more!</button>
 			</div>         
 	</div>
 </div>
