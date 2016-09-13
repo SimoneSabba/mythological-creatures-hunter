@@ -1,13 +1,18 @@
 'use strict';
 
-function ProfileCtrl($scope, $state, ProfileService) {
+function ProfileCtrl($scope, $state, $timeout, ProfileService, CONSTANTS) {
 
 	var init = function() {
 			$scope.profileInfo = ProfileService.getMyInfo();	
 	}
 
 	$scope.free = function(creature) {
+		$scope.loading = true;
+		$timeout(function(){
 			$scope.profileInfo = ProfileService.removeCreature(creature);
+			$scope.loading = false;
+		}, CONSTANTS.FREE_TIME);
+			
 	}
 
 	$scope.huntMore = function() {
@@ -17,5 +22,5 @@ function ProfileCtrl($scope, $state, ProfileService) {
 		init();
 }
 
-ProfileCtrl.$inject = ['$scope', '$state', 'ProfileService'];
+ProfileCtrl.$inject = ['$scope', '$state', '$timeout', 'ProfileService', 'CONSTANTS'];
 module.exports = ProfileCtrl;

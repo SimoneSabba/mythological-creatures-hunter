@@ -17,7 +17,8 @@ var CONSTANTS = (function() {
         MINIMUM_AGE: 0,
         MAXIMUM_AGE: 500,
         MINIMUM_MANA: 1000,
-        MAXIMUM_MANA: 10000
+        MAXIMUM_MANA: 10000,
+        FREE_TIME: 15000
     };
 }());
 
