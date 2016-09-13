@@ -10,11 +10,15 @@
             	<a ui-sref="profile">My creatures</a>
           	</li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a>Free cage <span class="badge">{{profileInfo.freeCage}}</span></a></li>
-            <li><a>Total mana <span class="badge">{{profileInfo.totalMana}}</span></a></li>
-            <li><a>Total age <span class="badge">{{profileInfo.totalAge}}</span></a></li>li>
-          </ul>
+          <p class="navbar-text navbar-right">
+            Total mana <span class="badge">{{profileInfo.totalMana}}</span>
+          </p>
+          <p class="navbar-text navbar-right">
+            Total age <span class="badge">{{profileInfo.totalAge}}</span>
+          </p>
+          <p class="navbar-text navbar-right">
+            Free cage <span class="badge">{{profileInfo.freeCage}}</span>
+          </p>
         </div>
       </div>
     </nav>
