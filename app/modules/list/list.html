@@ -7,7 +7,7 @@
 						<div class="box__content">
 	            <h1 class="tag-title text-center">{{c.type}}</h1>
           		<hr />
-	            <button ng-show="!isHunting(c)" class="btn btn-block btn-primary" ng-click="hunt(c)">Hunt it!</button>
+	            <button ng-disabled="profileInfo.freeCage = 0" ng-show="!isHunting(c)" class="btn btn-block btn-primary" ng-click="hunt(c)">Hunt it!</button>
             </div>
 						<form ng-show="isHunting(c)">
 						  <div class="form-group">
