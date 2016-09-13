@@ -40,6 +40,8 @@ function ListCtrl($scope, $state, CreaturesService, ProfileService) {
     $scope.cancel = function() {
         initSelectedCreature();
         initInfo();
+        initValidationErrors();
+        initForm();
     };
 
     $scope.catch = function(creature) {
