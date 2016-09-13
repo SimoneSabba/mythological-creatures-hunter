@@ -1,7 +1,11 @@
 'use strict';
 
 function HeaderCtrl($scope, ProfileService) {
-    $scope.profileInfo = ProfileService.getMyInfo();
+    function init() {
+			$scope.profileInfo = ProfileService.getMyInfo();
+    }
+
+    init();
 }
 
 HeaderCtrl.$inject = ['$scope', 'ProfileService'];
