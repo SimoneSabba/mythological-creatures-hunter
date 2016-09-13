@@ -4,20 +4,26 @@
 	</div>
 	<div class="row">
 		<h2 class="text-center">My creatures</h2>
-			<div class="row">
-				<div ng-repeat="c in profileInfo.myCreatures track by $index" class="col-md-4">
-					<div class="box">
-						<div class="box__content">
-	            <h1 class="tag-title text-center">{{c.name}}</h1>
-          		<hr />
-	            <button ng-show="!isHunting(c)" class="btn btn-block btn-primary" ng-click="free(c)">Free it!</button>
-            </div>
-        	</div>
-				</div>
+		<div class="well well-lg text-center" ng-show="profileInfo.freeCage === 10">
+			<h3>You don't have any creatures yet!</h3>
+			<button class="btn  btn-success btn-lg" ng-click="huntMore()">Start hunting!</button>
+		</div>
+		<div class="row">
+			<div ng-repeat="c in profileInfo.myCreatures track by $index" class="col-md-4">
+				<div class="box">
+					<div class="box__content">
+            <h1 class="tag-title text-center">{{c.name}}</h1>
+        		<hr />
+            <button ng-show="!isHunting(c)" class="btn btn-block btn-primary" ng-click="free(c)">Free it!</button>
+          </div>
+      	</div>
 			</div>
 		</div>
-		<div class="row text-center">
-				<button class="btn btn-block btn-primary" ng-disabled="profileInfo.freeCage === 0" ng-click="huntMore()">Hunt for more!</button>
-			</div>         
+		</div>
+		<div class="hunt-more row text-center" ng-show="profileInfo.freeCage !== 10">
+			<div class="col-md-6 col-md-offset-3">
+				<button class="hunt-more__button btn btn-block btn-primary" ng-disabled="profileInfo.freeCage === 0" ng-click="huntMore()">Hunt for more!</button>
+			</div>
+		</div>         
 	</div>
 </div>
