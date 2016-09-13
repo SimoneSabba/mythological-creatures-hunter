@@ -5,6 +5,8 @@ module.exports = angular.module('common.elements.commonHeader', [])
         return {
             template: require('./common-header.html'),
             restrict: 'EA',
-            replace: true
+            replace: true,
+            controller: require('./HeaderController')
         };
-    });
+    })
+    

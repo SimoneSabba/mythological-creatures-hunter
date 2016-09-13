@@ -1,31 +1,63 @@
 'use strict';
 
-function ListCtrl($scope, $state, FlickrService, Utilities) {
+function ListCtrl($scope, $state, CreaturesService, ProfileService) {
 
-    $scope.loaded = false;
-    $scope.error = false;
-    $scope.getAuthorPage = FlickrService.getAuthorPage;
-    $scope.formatDate = function(date) {
-        return Utilities.formatDate(date);
+    
+    function init() {
+        initInfo();
+        initSelectedCreature();
+        initValidationErrors();
+        initForm();
+        $scope.creatures = CreaturesService.getCreatures();
+        $scope.profileInfo = ProfileService.getMyInfo();
+    }
+
+    function initForm() {
+        $scope.isSubmitted = false;
+    }
+
+    function initInfo() {
+        $scope.info = {};
+    }
+
+    function initSelectedCreature() {
+        $scope.selectedCreature = {};
+    }
+
+    function initValidationErrors() {
+        $scope.isValid = {};
+    }
+
+    $scope.hunt = function(creature) {
+        initInfo();
+        $scope.selectedCreature = creature;
     };
 
-    var onSuccess = function(data) {
-        $scope.list = data;
-        $scope.loaded = true;
+    $scope.isHunting = function(creature) {
+        return creature && creature.type === $scope.selectedCreature.type ? true : false;
     };
 
-    var onError = function(error) {
-        $scope.error = true;
-        console.log('error during retriew data');
+    $scope.cancel = function() {
+        initSelectedCreature();
+        initInfo();
     };
 
-    FlickrService.getData().then(onSuccess, onError);
+    $scope.catch = function(creature) {
+        $scope.isSubmitted = true;
+        $scope.isValid.name = CreaturesService.checkName($scope.info.name);
+        $scope.isValid.age = CreaturesService.checkAge($scope.info.age);
+        $scope.isValid.mana = CreaturesService.checkMana($scope.info.mana);
 
-    $scope.goToPost = function(item) {
-        FlickrService.setItem(item);
-        $state.go('post');
+        if ($scope.isValid.name && $scope.isValid.age && $scope.isValid.mana) {
+            angular.extend(creature, $scope.info);
+            $scope.profileInfo = ProfileService.addCreature(creature);
+            initSelectedCreature();
+        }
     };
+
+    init();
+
 }
 
-ListCtrl.$inject = ['$scope', '$state', 'FlickrService', 'Utilities'];
+ListCtrl.$inject = ['$scope', '$state', 'CreaturesService', 'ProfileService'];
 module.exports = ListCtrl;

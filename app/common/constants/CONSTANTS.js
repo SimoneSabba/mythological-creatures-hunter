@@ -2,9 +2,22 @@
 
 var CONSTANTS = (function() {
     return {
-        FLICKR_BASE_URL: 'https://www.flickr.com/',
-        FLICKR_API_URL: 'https://api.flickr.com/services/feeds/photos_public.gne?tags=potato&tagmode=all&format=json',
-        FORMAT_DATE_DEFAULT: 'MMM yyyy \'at\' hh:mm'
+        PHOENIXE: 'Phoenixe',
+        MEDUSA: 'Medusa',
+        HIPPOGRIFF: 'Hippogriff',
+        UNICORN: 'Unicorn',
+        CENTAUR: 'Centaur',
+        DAEMON: 'Daemon',
+        VAMPIRE: 'Vampire',
+        MINOTAUR: 'Minotaur',
+        WEREWOLF: 'Werewolf',
+        PEGASUS: 'Pegasus',
+        CHIMERA: 'Chimera',
+        YETI: 'Yeti',
+        MINIMUM_AGE: 0,
+        MAXIMUM_AGE: 500,
+        MINIMUM_MANA: 1000,
+        MAXIMUM_MANA: 10000
     };
 }());
 

@@ -8,101 +8,34 @@
 /* =======================================================================
     Module Styles
 ======================================================================= */
-.flr-img {
-  width: 100px;
-  height: 100px;
+
+.box {
+	background:#fff;
+  transition:all 0.2s ease;
+  border:2px dashed #dadada;
+  margin-top: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-clip: padding-box;
+  padding:0 20px 20px 20px;
+  min-height:340px;
 }
 
-.flr-truncate {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.box:hover {
+  border:2px solid #525C7A;
 }
 
-.flr-pointer {
-  cursor: pointer;
+.box__title {
+	color: #fff;
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
 }
 
-/* =======================================================================
-    Loading
-======================================================================= */
-
-.loading span{
-  display: inline-block;
-  padding: 8px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius:50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
+.box__content {
+	padding: 16px;
+  border-radius: 0 0 2px 2px;
+  background-clip: padding-box;
+  box-sizing: border-box;
 }
-.ball1{
-  background: #0063dc;
-  -webkit-animation: move-left 800ms ease-in-out  infinite alternate;
-  -moz-animation: move-left 800ms ease-in-out  infinite alternate;
-  -ms-animation: move-left 800ms ease-in-out  infinite alternate;
-  -animation: move-left 800ms ease-in-out  infinite alternate;
-
-}
-.ball2{
-  background:#ff0084;
-  -webkit-animation: move-right 800ms ease-in-out  infinite alternate;
-  -moz-animation: move-right 800ms ease-in-out  infinite alternate;
-  -ms-animation: move-right 800ms ease-in-out  infinite alternate;
-  animation: move-right 800ms ease-in-out  infinite alternate;
-}
-@-webkit-keyframes move-left {.ball-first;}
-@-moz-keyframes move-left {.ball-first;}
-@-ms-keyframes move-left {.ball-first;}
-@-o-keyframes move-left {.ball-first;}
-@keyframes move-left {.ball-first;}
-
-@-webkit-keyframes move-right {.ball-second;}
-@-moz-keyframes move-right {.ball-second;}
-@-ms-keyframes move-right {.ball-second;}
-@-o-keyframes move-right {.ball-second;}
-@keyframes move-right {.ball-second;}
-
-.ball-first() {
-  from { }
-  to {
-    -webkit-transform: translate(20px,0);
-    -ms-transform: translate(20px,0);
-    -moz-transform: translate(20px,0);
-    transform: translate(20px,0);
-    background:#ff0084;
-  }
-}
-.ball-second () {
-  from { }
-  to {
-    -webkit-transform: translate(-20px,0);
-    -ms-transform: translate(-20px,0);
-    -moz-transform:translate(-20px,0);
-    transform: translate(-20px,0);
-    background: #0063dc;
-  }
-}
-
-/* =======================================================================
-    Flex view
-======================================================================= */
-.flr-flex-view {
-  display: flex;
-  display: -webkit-flex;
-  div:first-child {
-    .flr-margin-left-large;
-  }
-  div {
-    .flr-margin-right-large;
-  }
-}
-
-.flr-title {
-  .flr-margin-bottom-large;
-  .flr-margin-right-large;
-  .flr-margin-left-large;
-}
-
-
 

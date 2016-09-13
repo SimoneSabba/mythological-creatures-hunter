@@ -3,6 +3,6 @@
 module.exports = angular.module('modules',
     [
         require('./list').name,
-        require('./post').name
+        require('./profile').name
     ])
     .controller('MainCtrl', require('./MainController'));
