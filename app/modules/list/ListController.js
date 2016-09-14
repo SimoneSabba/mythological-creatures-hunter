@@ -1,6 +1,6 @@
 'use strict';
 
-function ListCtrl($scope, $state, CreaturesService, ProfileService) {
+function ListCtrl($scope, $state, $timeout, CreaturesService, ProfileService) {
 
     function initForm() {
         $scope.isSubmitted = false;
@@ -25,6 +25,7 @@ function ListCtrl($scope, $state, CreaturesService, ProfileService) {
         initForm();
         $scope.creatures = CreaturesService.getCreatures();
         $scope.profileInfo = ProfileService.getMyInfo();
+        $scope.isCatched = false;
     }
 
     $scope.hunt = function(creature) {
@@ -52,7 +53,12 @@ function ListCtrl($scope, $state, CreaturesService, ProfileService) {
         if ($scope.isValid.name && $scope.isValid.age && $scope.isValid.mana) {
             angular.extend(creature, $scope.info);
             $scope.profileInfo = ProfileService.addCreature(creature);
-            initSelectedCreature();
+            $scope.isCatched = true;
+            $timeout(function(){
+                $scope.isCatched = false;
+                initSelectedCreature();
+            }, 1000);
+            
         }
     };
 
@@ -60,5 +66,5 @@ function ListCtrl($scope, $state, CreaturesService, ProfileService) {
 
 }
 
-ListCtrl.$inject = ['$scope', '$state', 'CreaturesService', 'ProfileService'];
+ListCtrl.$inject = ['$scope', '$state', '$timeout', 'CreaturesService', 'ProfileService'];
 module.exports = ListCtrl;

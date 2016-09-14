@@ -10,11 +10,12 @@
 						<div class="box__content">
 	            			<h1 class="tag-title text-center">{{c.type}}</h1>
 	            			<hr />
+	            			<p ng-show="isHunting(c) && isCatched" class="bg-success text-center">You cathced it!</p>
 	            			<img ng-show="!isHunting(c)" ng-src="{{c.image}}" class="box__content__img img-circle img-responsive"/>
 	            			<hr />
 	            			<button ng-disabled="profileInfo.freeCage === 0" ng-show="!isHunting(c)" class="btn btn-block btn-primary" ng-click="hunt(c)">Hunt it!</button>
             			</div>
-						<form ng-show="isHunting(c)">
+						<form ng-show="isHunting(c) && !isCatched">
 						  <div class="form-group" ng-class="{'has-error': isSubmitted && !isValid.name}">
 						    <label class="control-label" for="name">Name:</label>
 						    <input type="text" ng-model="info.name" class="form-control" id="name">
