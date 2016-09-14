@@ -2,7 +2,7 @@
 
 var CONSTANTS = (function() {
     return {
-        PHOENIXE: 'Phoenixe',
+        PHOENIX: 'Phoenix',
         MEDUSA: 'Medusa',
         HIPPOGRIFF: 'Hippogriff',
         UNICORN: 'Unicorn',

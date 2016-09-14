@@ -3,7 +3,7 @@
 var CreaturesService = function(CONSTANTS) {
     
     var creatures = [];
-    creatures[0] = { type: CONSTANTS.PHOENIXE, image: 'images/phoenix.jpg' };
+    creatures[0] = { type: CONSTANTS.PHOENIX, image: 'images/phoenix.jpg' };
     creatures[1] = { type: CONSTANTS.MEDUSA, image: 'images/medusa.jpg' };
     creatures[2] = { type: CONSTANTS.HIPPOGRIFF, image: 'images/hyppogriff.jpg' };
     creatures[3] = { type: CONSTANTS.UNICORN, image: 'images/unicorn.jpg' };
