@@ -11,7 +11,7 @@
 		<div class="row">
 			<div ng-repeat="c in profileInfo.myCreatures track by $index" class="col-md-4">
 				<div class="box">
-					<div class="box__content">
+					<div class="box__content" ng-show="!loading">
             			<h1 class="tag-title text-center">{{c.name}}</h1>
         				<hr />
         				<img ng-src="{{c.image}}" class="box__content__img img-circle img-responsive"/>
@@ -22,17 +22,22 @@
         					<div class="col-md-12 col-xs-12">Capture time {{c.captureTime | date: 'h:mm:ss a'}}</div>
         				</div>
         				<div class="row">
-        					<button ng-show="!isHunting(c)" class="btn btn-block btn-primary" ng-click="free(c)">Free it!</button>	
+        					<button ng-show="!isHunting(c)" class="btn btn-block btn-primary" ng-click="free(c)">Free it!</button>
         				</div>
-            			
           			</div>
+          			<div class="box__content" ng-show="loading">
+      					<h1 class="tag-title text-center">Releasing {{c.name}}...</h1>
+      					<i class="box__content__icon--loader fa fa-refresh fa-spin fa-3x fa-fw"></i>
+      				</div>
       			</div>
 			</div>
 		</div>
 		</div>
 		<div class="hunt-more row text-center" ng-show="profileInfo.freeCage !== 10">
 			<div class="col-md-6 col-md-offset-3">
-				<button class="hunt-more__button btn btn-block btn-primary" ng-disabled="profileInfo.freeCage === 0" ng-click="huntMore()">Hunt for more!</button>
+				<button class="hunt-more__button btn btn-block btn-primary" ng-disabled="profileInfo.freeCage === 0 || loading" ng-click="huntMore()">
+				Hunt for more!
+				</button>
 			</div>
 		</div>         
 	</div>
