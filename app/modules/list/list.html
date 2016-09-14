@@ -10,7 +10,7 @@
 						<div class="box__content">
 	            			<h1 class="tag-title text-center">{{c.type}}</h1>
 	            			<hr />
-	            			<img ng-src="{{c.image}}" class="box__content__img img-circle img-responsive"/>
+	            			<img ng-show="!isHunting(c)" ng-src="{{c.image}}" class="box__content__img img-circle img-responsive"/>
 	            			<hr />
 	            			<button ng-disabled="profileInfo.freeCage === 0" ng-show="!isHunting(c)" class="btn btn-block btn-primary" ng-click="hunt(c)">Hunt it!</button>
             			</div>
