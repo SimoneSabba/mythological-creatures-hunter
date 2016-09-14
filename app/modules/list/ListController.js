@@ -54,7 +54,7 @@ function ListCtrl($scope, $state, $timeout, CreaturesService, ProfileService) {
             angular.extend(creature, $scope.info);
             $scope.profileInfo = ProfileService.addCreature(creature);
             $scope.isCatched = true;
-            $timeout(function(){
+            $timeout(function() {
                 $scope.isCatched = false;
                 initSelectedCreature();
             }, 1000);

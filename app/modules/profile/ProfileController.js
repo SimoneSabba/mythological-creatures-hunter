@@ -4,10 +4,11 @@ function ProfileCtrl($scope, $state, $timeout, ProfileService, CONSTANTS) {
 
 	function initSortingProperties () {
 		$scope.orderingType = [
-		{ name: 'mana', value: 'mana' },
-		{ name: 'age', value: 'age' },
-		{ name: 'name', value: 'name' },
-		{ name: 'capture time', value: 'captureTime'}]
+			{ name: 'mana', value: 'mana' },
+			{ name: 'age', value: 'age' },
+			{ name: 'name', value: 'name' },
+			{ name: 'capture time', value: 'captureTime'}
+		];
 	}
 
 	var init = function() {
