@@ -12,11 +12,13 @@
 			<div ng-repeat="c in profileInfo.myCreatures track by $index" class="col-md-4">
 				<div class="box">
 					<div class="box__content">
-            <h1 class="tag-title text-center">{{c.name}}</h1>
-        		<hr />
-            <button ng-show="!isHunting(c)" class="btn btn-block btn-primary" ng-click="free(c)">Free it!</button>
-          </div>
-      	</div>
+            			<h1 class="tag-title text-center">{{c.name}}</h1>
+        				<hr />
+        				<img ng-src="{{c.image}}" class="box__content__img img-circle img-responsive"/>
+            			<hr />
+            			<button ng-show="!isHunting(c)" class="btn btn-block btn-primary" ng-click="free(c)">Free it!</button>
+          			</div>
+      			</div>
 			</div>
 		</div>
 		</div>
