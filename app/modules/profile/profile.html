@@ -2,11 +2,11 @@
 	<no-free-cage></no-free-cage>
 	<div class="row">
 		<h2 class="text-center">My creatures</h2>
-		<div ng-show="profileInfo.myCreatures.length>1">
-			<span>Order by </span>
-			<select ng-options="type.name for type in orderingType" ng-model="orderingProperty"></select>
-		</div>
 		<no-creatures></no-creatures>
+		<div class="form-group form-inline" ng-show="profileInfo.myCreatures.length>1">
+			<label for="prop">Order by:</label>
+			<select class="form-control" ng-options="type.name for type in orderingType" ng-model="orderingProperty" id="prop"></select>
+		</div>
 		<div class="row">
 			<div ng-repeat="c in profileInfo.myCreatures | orderBy: orderingProperty.value" class="col-md-4">
 				<div class="box">
