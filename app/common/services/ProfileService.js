@@ -1,6 +1,6 @@
 'use strict';
 
-var ProfileService = function($filter, CONSTANTS) {
+var ProfileService = function() {
 
     this.info = {
         myCreatures: {},
@@ -22,7 +22,7 @@ var ProfileService = function($filter, CONSTANTS) {
             this.info.freeCage -= 1;
             return this.info;
         }
-    }
+    };
 
     this.removeCreature = function(creature) {
         if (this.info.myCreatures[creature.name]) {
@@ -32,8 +32,8 @@ var ProfileService = function($filter, CONSTANTS) {
             this.info.freeCage += 1;
             return this.info;
         }
-    }
+    };
 };
 
-ProfileService.$inject = ['$filter', 'CONSTANTS'];
+ProfileService.$inject = [];
 module.exports = ProfileService;

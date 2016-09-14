@@ -2,7 +2,7 @@
 
 function HeaderCtrl($scope, ProfileService) {
     function init() {
-			$scope.profileInfo = ProfileService.getMyInfo();
+		$scope.profileInfo = ProfileService.getMyInfo();
     }
 
     init();

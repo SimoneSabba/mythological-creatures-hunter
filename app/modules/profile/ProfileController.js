@@ -3,8 +3,8 @@
 function ProfileCtrl($scope, $state, $timeout, ProfileService, CONSTANTS) {
 
 	var init = function() {
-			$scope.profileInfo = ProfileService.getMyInfo();	
-	}
+		$scope.profileInfo = ProfileService.getMyInfo();	
+	};
 
 	$scope.free = function(creature) {
 		$scope.loading = true;
@@ -12,14 +12,13 @@ function ProfileCtrl($scope, $state, $timeout, ProfileService, CONSTANTS) {
 			$scope.profileInfo = ProfileService.removeCreature(creature);
 			$scope.loading = false;
 		}, CONSTANTS.FREE_TIME);
-			
-	}
+	};
 
 	$scope.huntMore = function() {
-			$state.go('home');
-	}
+		$state.go('home');
+	};
 
-		init();
+	init();
 }
 
 ProfileCtrl.$inject = ['$scope', '$state', '$timeout', 'ProfileService', 'CONSTANTS'];

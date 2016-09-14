@@ -8,5 +8,5 @@ module.exports = angular.module('common.elements.commonHeader', [])
             replace: true,
             controller: require('./HeaderController')
         };
-    })
+    });
     

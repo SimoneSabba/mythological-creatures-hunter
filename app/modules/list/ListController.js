@@ -2,16 +2,6 @@
 
 function ListCtrl($scope, $state, CreaturesService, ProfileService) {
 
-    
-    function init() {
-        initInfo();
-        initSelectedCreature();
-        initValidationErrors();
-        initForm();
-        $scope.creatures = CreaturesService.getCreatures();
-        $scope.profileInfo = ProfileService.getMyInfo();
-    }
-
     function initForm() {
         $scope.isSubmitted = false;
     }
@@ -26,6 +16,15 @@ function ListCtrl($scope, $state, CreaturesService, ProfileService) {
 
     function initValidationErrors() {
         $scope.isValid = {};
+    }
+    
+    function init() {
+        initInfo();
+        initSelectedCreature();
+        initValidationErrors();
+        initForm();
+        $scope.creatures = CreaturesService.getCreatures();
+        $scope.profileInfo = ProfileService.getMyInfo();
     }
 
     $scope.hunt = function(creature) {
