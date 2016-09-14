@@ -18,7 +18,8 @@ var CONSTANTS = (function() {
         MAXIMUM_AGE: 500,
         MINIMUM_MANA: 1000,
         MAXIMUM_MANA: 10000,
-        FREE_TIME: 15000
+        FREE_TIME: 15000,
+        DATE_FORMAT: 'h:mm:ss a'
     };
 }());
 

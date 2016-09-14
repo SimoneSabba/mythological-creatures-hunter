@@ -1,6 +1,6 @@
 'use strict';
 
-function ProfileCtrl($scope, $state, $timeout, ProfileService, CONSTANTS) {
+function ProfileCtrl($scope, $state, $timeout, $filter, ProfileService, CONSTANTS) {
 
 	function initSortingProperties () {
 		$scope.orderingType = [
@@ -29,8 +29,12 @@ function ProfileCtrl($scope, $state, $timeout, ProfileService, CONSTANTS) {
 		$state.go('home');
 	};
 
+	$scope.formatDate = function(captureTime) {
+		return $filter('date')(captureTime, CONSTANTS.DATE_FORMAT)
+	};
+
 	init();
 }
 
-ProfileCtrl.$inject = ['$scope', '$state', '$timeout', 'ProfileService', 'CONSTANTS'];
+ProfileCtrl.$inject = ['$scope', '$state', '$timeout', '$filter', 'ProfileService', 'CONSTANTS'];
 module.exports = ProfileCtrl;
