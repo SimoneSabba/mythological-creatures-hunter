@@ -2,40 +2,87 @@
 
 'use strict';
 
-describe('Utilities service', function() {
+describe('Profile service', function() {
 
-    var utilities;
+    var profileService, creature1, creature2;
+
+    creature1 = {
+            name: 'myFirstCreature',
+            mana: 1000,
+            age: 300
+        };
+
+    creature2 = {
+        name: 'mySecondCreature',
+        mana: 4300,
+        age: 280
+    };
 
     beforeEach(angular.mock.module('myApp'));
 
     beforeEach(function() {
 
-        angular.mock.inject(function(Utilities) {
-            utilities = Utilities;
+        angular.mock.inject(function(ProfileService) {
+            profileService = ProfileService;
         });
 
     });
 
     it('should contain the right functions', function() {
-        expect(utilities.formatDate).to.be.function;
-        expect(utilities.getOrdinalSuffix).to.be.function;
+        expect(profileService.getMyInfo).to.be.function;
+        expect(profileService.addCreature).to.be.function;
+        expect(profileService.removeCreature).to.be.function;
     });
 
-    it('should return the ordinal suffix', function() {
-        expect(utilities.getOrdinalSuffix(1)).to.be.equal('1st');
-        expect(utilities.getOrdinalSuffix(2)).to.be.equal('2nd');
-        expect(utilities.getOrdinalSuffix(3)).to.be.equal('3rd');
-        expect(utilities.getOrdinalSuffix(11)).to.be.equal('11th');
-        expect(utilities.getOrdinalSuffix(1101)).to.be.equal('1101th');
-        expect(utilities.getOrdinalSuffix('text')).to.be.undefined;
+    it('should return default profile info when is called the first time', function() {
+        var myInfo = profileService.getMyInfo();
+        expect(myInfo.myCreatures).to.be.array;
+        expect(myInfo.myCreatures.length).to.be.equal(0);
+        expect(myInfo.totalMana).to.be.equal(0);
+        expect(myInfo.totalAge).to.be.equal(0);
+        expect(myInfo.freeCage).to.be.equal(10);
     });
 
-    it('should format the date', function() {
-        expect(utilities.formatDate(null)).to.be.undefined;
-        expect(utilities.formatDate(undefined)).to.be.undefined;
-        expect(utilities.formatDate('Mon Jul 11 2016 22:06:21 GMT+0100 (IST)')).to.be.equal('11th Mon Jul 11 2016 22:06:21 GMT+0100 (IST)');
-        expect(utilities.formatDate('2016-08-17T16:41:02Z')).to.be.equal('17th Aug 2016 at 05:41');
-        expect(utilities.formatDate('1983-12-23T13:00:00Z', {format: 'MM yy'})).to.be.equal('23rd 12 83');
+    it('should add a creature and return the updated profile info', function() {
+        var myInfo;
+        
+        // add first creature
+        myInfo = profileService.addCreature(creature1);
+        expect(myInfo.myCreatures).to.be.array;
+        expect(myInfo.myCreatures.length).to.be.equal(1);
+        expect(myInfo.myCreatures[0].name).to.be.equal(creature1.name);
+        expect(myInfo.totalMana).to.be.equal(1000);
+        expect(myInfo.totalAge).to.be.equal(300);
+        expect(myInfo.freeCage).to.be.equal(9);
+
+        // add second creature
+        myInfo = profileService.addCreature(creature2);
+        expect(myInfo.myCreatures).to.be.array;
+        expect(myInfo.myCreatures.length).to.be.equal(2);
+        expect(myInfo.myCreatures[1].name).to.be.equal(creature2.name);
+        expect(myInfo.totalMana).to.be.equal(5300);
+        expect(myInfo.totalAge).to.be.equal(580);
+        expect(myInfo.freeCage).to.be.equal(8);
+    });
+
+    it('should remove a creature and return the updated profile info', function() {
+        var myInfo;
+        
+        // add first creature
+        myInfo = profileService.addCreature(creature1);
+        expect(myInfo.freeCage).to.be.equal(9);
+        // add second creature
+        myInfo = profileService.addCreature(creature2);
+        expect(myInfo.freeCage).to.be.equal(8);
+        // remove first creature
+        myInfo = profileService.removeCreature(creature1);
+
+        expect(myInfo.myCreatures).to.be.array;
+        expect(myInfo.myCreatures.length).to.be.equal(1);
+        expect(myInfo.myCreatures[0].name).to.be.equal(creature2.name);
+        expect(myInfo.totalMana).to.be.equal(4300);
+        expect(myInfo.totalAge).to.be.equal(280);
+        expect(myInfo.freeCage).to.be.equal(9);
     });
 
 });
