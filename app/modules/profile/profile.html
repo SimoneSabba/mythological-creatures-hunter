@@ -4,12 +4,13 @@
 	</div>
 	<div class="row">
 		<h2 class="text-center">My creatures</h2>
+		Order by <select ng-options="type.name for type in orderingType" ng-model="orderingProperty"></select>
 		<div class="well well-lg text-center" ng-show="profileInfo.freeCage === 10">
 			<h3>You don't have any creatures yet!</h3>
 			<button class="btn  btn-success btn-lg" ng-click="huntMore()">Start hunting!</button>
 		</div>
 		<div class="row">
-			<div ng-repeat="c in profileInfo.myCreatures track by $index" class="col-md-4">
+			<div ng-repeat="c in profileInfo.myCreatures | orderBy: orderingProperty.value" class="col-md-4">
 				<div class="box">
 					<div class="box__content" ng-show="!loading">
             			<h1 class="tag-title text-center">{{c.name}}</h1>
