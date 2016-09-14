@@ -16,7 +16,15 @@
         				<hr />
         				<img ng-src="{{c.image}}" class="box__content__img img-circle img-responsive"/>
             			<hr />
-            			<button ng-show="!isHunting(c)" class="btn btn-block btn-primary" ng-click="free(c)">Free it!</button>
+        				<div class="row box__content__info">
+        					<div class="col-md-6 col-xs-6">Age: {{c.age}}</div>
+        					<div class="col-md-6 col-xs-6">Mana: {{c.mana}}</div>
+        					<div class="col-md-12 col-xs-12">Capture time {{c.captureTime | date: 'h:mm:ss a'}}</div>
+        				</div>
+        				<div class="row">
+        					<button ng-show="!isHunting(c)" class="btn btn-block btn-primary" ng-click="free(c)">Free it!</button>	
+        				</div>
+            			
           			</div>
       			</div>
 			</div>
