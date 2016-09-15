@@ -31,8 +31,7 @@ describe('add new creature functionality', function() {
         expect(totalAge.getText()).toEqual('100');
         expect(totalCage.getText()).toEqual('9');
         
-        browser.ignoreSynchronization = false;
-        
+        browser.ignoreSynchronization = false;        
        
     });
 });
