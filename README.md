@@ -23,8 +23,15 @@ In order to build and run the application, you need to have installed
 ### Dev mode
 If you want to run the application in dev mode, run ```gulp```. In dev mode the  ```dist ``` folder won't be rebuilded.
 
-### Run test
+### Run unit test
 To run unit test, run ```gulp test```
+
+### Run end-to-end test
+To run end-to-end test:
+
+1) if you don't have the project builded and running on your local server yet, run ```gulp build```
+
+2) when your project is builded and local server is running on port 5000, run test ```gulp protractor```
 
 ### References
 To any kind of references about the folder structure, file organization, ecc.
