@@ -7,10 +7,10 @@ describe('Profile service', function() {
     var profileService, creature1, creature2;
 
     creature1 = {
-            name: 'myFirstCreature',
-            mana: 1000,
-            age: 300
-        };
+        name: 'myFirstCreature',
+        mana: 1000,
+        age: 300
+    };
 
     creature2 = {
         name: 'mySecondCreature',
