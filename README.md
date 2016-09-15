@@ -31,7 +31,7 @@ To run end-to-end test:
 
 1) if you don't have the project builded and running on your local server yet, run ```gulp build```
 
-2) when your project is builded and local server is running on port 5000, run test ```gulp protractor```
+2) when your project is builded and local server is running on port 5000,  open a new terminal and run test ```gulp protractor```
 
 ### References
 To any kind of references about the folder structure, file organization, ecc.
