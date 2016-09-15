@@ -393,7 +393,7 @@ gulp.task('protractor', function(callback) {
 // run "gulp" in terminal to build the DEV app
 gulp.task('build-dev', function(callback) {
     runSequence(
-        ['clean-dev', 'lint', 'checkstyle'],
+        ['clean-dev', 'lint'],
         // images and vendor tasks are removed to speed up build time. Use "gulp build" to do a full re-build of the dev app.
         ['bundle-dev', 'styles-dev', 'copyIndex', 'copyFavicon'], ['server', 'watch'],
         callback
@@ -412,7 +412,7 @@ gulp.task('build-test', function(callback) {
 // run "gulp prod" in terminal to build the PROD-ready app
 gulp.task('build-prod', function(callback) {
     runSequence(
-        ['clean-full', 'lint', 'checkstyle'],
+        ['clean-full', 'lint'],
         ['bundle-prod', 'styles-prod', 'images', 'fonts', 'vendorJS', 'vendorCSS', 'copyIndex', 'copyFavicon'],
         ['server'],
         callback
@@ -422,7 +422,7 @@ gulp.task('build-prod', function(callback) {
 // run "gulp build" in terminal for a full re-build in DEV
 gulp.task('build', function(callback) {
     runSequence(
-        ['clean-full', 'lint', 'checkstyle'],
+        ['clean-full', 'lint'],
         ['bundle-dev', 'styles-dev', 'images', 'fonts', 'vendorJS', 'vendorCSS', 'copyIndex', 'copyFavicon'],
         ['server', 'watch'],
         callback
