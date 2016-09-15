@@ -22,7 +22,8 @@ var gulp = require('gulp'),
     buffer = require('vinyl-buffer'),
     runSequence = require('run-sequence'),
     karma = require('karma').server,
-    gulpif = require('gulp-if');
+    gulpif = require('gulp-if'),
+    gulpProtractorAngular = require('gulp-angular-protractor');
 
 
 // =======================================================================
@@ -368,6 +369,22 @@ gulp.task('karma', function(done) {
     }, done);
 });
 
+// =======================================================================
+// Protractor
+// =======================================================================
+gulp.task('protractor', function(callback) {
+    gulp
+        .src(['./e2e/*.js'])
+        .pipe(gulpProtractorAngular({
+            'configFile': 'protractor.conf.js',
+            'debug': false,
+            'autoStartStopServer': true
+        }))
+        .on('error', function(e) {
+            console.log(e);
+        })
+        .on('end', callback);
+});
 
 // =======================================================================
 // Sequential Build Rendering
