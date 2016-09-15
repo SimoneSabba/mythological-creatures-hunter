@@ -6,14 +6,14 @@
 			<div ng-repeat="c in creatures track by $index" class="col-md-4">
 				<div class="box">
 					<div class="box__content">
-            			<h1 class="tag-title text-center">{{c.type}}</h1>
+            			<h1 class="box__content__title tag-title text-center">{{c.type}}</h1>
             			<hr />
             			<p ng-show="isHunting(c) && isCatched" class="bg-success text-center">You cathced it!</p>
             			<img ng-show="!isHunting(c)" ng-src="{{c.image}}" class="box__content__img img-circle img-responsive"/>
             			<hr />
-            			<button ng-disabled="profileInfo.freeCage === 0" ng-show="!isHunting(c)" class="btn btn-block btn-primary" ng-click="hunt(c)">Hunt it!</button>
+            			<button ng-disabled="profileInfo.freeCage === 0" ng-show="!isHunting(c)" class="box__content__button--hunt btn btn-block btn-primary" ng-click="hunt(c)">Hunt it!</button>
         			</div>
-        			<form ng-show="isHunting(c) && !isCatched">
+        			<form ng-show="isHunting(c) && !isCatched" class="box__form">
         				<div class="form-group" >
 							<label class="control-label" for="name">Name:</label>
 							<input type="text" ng-model="info.name" class="form-control" id="name"/>
@@ -29,8 +29,8 @@
 							<input type="number" ng-model="info.mana" class="form-control" id="mana"/>
 							<span ng-show="isSubmitted && !isValid.mana" class="help-block">Has to be between 1000 and 10000</span>
 						</div>
-						<button type="submit" class="btn btn-default" ng-click="catch(c)">Catch</button>
-						<button type="submit" ng-click="cancel()" class="btn btn-default">Cancel</button>
+						<button type="submit" class="box__form__button--catch btn btn-default" ng-click="catch(c)">Catch</button>
+						<button type="submit" ng-click="cancel()" class="box__form__button--cancel btn btn-default">Cancel</button>
         			</form>
 				</div>
 			</div>           
