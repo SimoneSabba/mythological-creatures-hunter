@@ -30,7 +30,7 @@ function ProfileCtrl($scope, $state, $timeout, $filter, ProfileService, CONSTANT
 	};
 
 	$scope.formatDate = function(captureTime) {
-		return $filter('date')(captureTime, CONSTANTS.DATE_FORMAT)
+		return $filter('date')(captureTime, CONSTANTS.DATE_FORMAT);
 	};
 
 	init();
